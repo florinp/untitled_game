@@ -3,6 +3,7 @@ import sys, os, re, math, random, shutil
 from fife import fife
 from fife.extensions.loaders import loadMapFile
 
+from scripts.misc.exceptions import *
 from scripts.misc.serializer import Serializer
 
 GameObjectTypes = {
@@ -154,9 +155,8 @@ class BaseGameObject(Serializer):
         if self._instance:
             self._instance.thisown = 0
         else:
-            # @todo: raise an exception
-            return None
-    
+            raise InstanceNotFoundError(self._id + " not found on layer")
+        
     def _getLocation(self):
         return self._instance.getLocation()
     
