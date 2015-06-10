@@ -9,12 +9,10 @@ from fife.extensions.fife_settings import Setting
 # import Game class
 from scripts.game import Game
 
-# import mainMenu class
-from scripts.gui.mainMenu import MainMenu
 
-import tmxlib
-
-settings = Setting(app_name='untitled_game', settings_file='./settings.xml', settings_gui_xml="")    
+settings = Setting(app_name='untitled_game',
+                   settings_file='./settings.xml',
+                   settings_gui_xml="")    
  
 def main():
     app = Game(settings)
